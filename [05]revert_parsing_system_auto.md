@@ -1,9 +1,12 @@
 ✅ 목표: 실패 트랜잭션 실시간 감지 시스템 구축
 
-항목	내용
-실시간	블록 생성될 때마다 모든 트랜잭션을 확인
-실패 탐지	status == 0 (fail) 인 트랜잭션만 추출
-후처리	debug.traceTransaction으로 reason 복구 → MongoDB 저장
+| 항목 | 내용 |
+|---|---|
+| 실시간	| 블록 생성될 때마다 모든 트랜잭션을 확인 |
+| 실패 탐지 | status == 0 (fail) 인 트랜잭션만 추출 |
+|후처리 | debug.traceTransaction으로 reason 복구 → MongoDB 저장 |
+
+---
 
 # 📚 전체 시스템 흐름
 ```plaintext
@@ -147,22 +150,3 @@ MongoDB에 저장
 
 ➡️ 완전 자동화된 실패 감지 및 기록 시스템이 완성됩니다. 🚀
 
-
-# 📚 부가 기능 제안
-추가로 다음도 가능해집니다:
-
-
-기능	설명
-실패 트랜잭션 Discord 알림	Discord Webhook으로 실패 알리기
-실패 패턴 통계	자주 실패하는 함수/주소 분석
-특정 컨트랙트 모니터링	관심 주소만 필터링해서 감시
-✨ 정리
-
-항목	내용
-실시간 블록 구독	Geth WebSocket newHeads
-실패 트랜잭션 필터링	TxReceipt.status == 0
-자동 분석	debug.traceTransaction + memory decode
-MongoDB 저장	txHash, block, reason 기록
-🚀 지금 상태
-✅ 트랜잭션 실패 자동 감지 시스템 (Ready)
-✅ 실패한 이유 복구해서 저장 (Ready
